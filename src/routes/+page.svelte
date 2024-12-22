@@ -39,12 +39,13 @@
           to rent, Allstate Background Searches, LLC makes sure you are getting
           honest information from your applicants.
         </div>
-        <h2>Contact Us</h2>
-
-        <FormSparkAsync
-          id={data.FORMSPARK_ID}
-          botpoisonKey={data.BOTPOISON_KEY}
-        />
+        <details class="flow">
+          <summary> Send Us a Message </summary>
+          <FormSparkAsync
+            id={data.FORMSPARK_ID}
+            botpoisonKey={data.BOTPOISON_KEY}
+          />
+        </details>
       </div>
     </div>
   </div>
@@ -82,5 +83,10 @@
   .tagline {
     line-height: inherit;
     text-wrap: initial;
+  }
+
+  summary {
+    color: #4791ce;
+    font-weight: bold;
   }
 </style>
