@@ -1,0 +1,397 @@
+:root {
+  /* color-scheme: dark light; */
+
+  --xxxsm: 4rem;
+  --xxs: 8rem;
+  --xs: 16rem;
+  --sm: 32rem;
+  --md: 48rem;
+  --lg: 70rem;
+  --xl: 80rem;
+  --xxl: 96rem;
+
+  --size: 1rem;
+  --size-0-2-5: calc(var(--size) / 4);
+  --size-0-5: calc(var(--size) / 2);
+  --size-1-2-5: calc(var(--size) * 1.25);
+  --size-1-5: calc(var(--size) * 1.5);
+  --size-2: calc(var(--size) * 2);
+  --size-2-5: calc(var(--size) * 2.5);
+  --size-3: calc(var(--size) * 3);
+  --size-4: calc(var(--size) * 4);
+  --size-5: calc(var(--size) * 5);
+  --size-6: calc(var(--size) * 6);
+  --size-7: calc(var(--size) * 7);
+  --size-8: calc(var(--size) * 8);
+
+  --dark: black;
+  --light: white;
+  --hue: 74;
+  --saturation: 64%;
+  --lightness: 59%;
+  --accent: hsl(var(--hue), var(--saturation), var(--lightness));
+  --accent-inverse: hsl(
+    calc(var(--hue) + 180),
+    var(--saturation),
+    var(--lightness)
+  );
+}
+
+/* Resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* outline: 1px solid red; */
+}
+
+:target {
+  scroll-margin-block: 2rem; /* Firefox fallback */
+  scroll-margin-block: 5rlh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+html {
+  font-family: system-ui, sans-serif;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  interpolate-size: allow-keywords;
+}
+
+dialog {
+  margin: auto;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  font-weight: bold;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+button,
+input,
+label {
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+p,
+li,
+figcaption {
+  max-width: 65ch;
+  text-wrap: pretty;
+}
+
+img,
+picture {
+  inline-size: 100%;
+  height: auto;
+  display: block;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: var(--size);
+}
+
+svg {
+  max-inline-size: 100%;
+  height: auto;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  min-inline-size: 0;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input,
+select,
+textarea {
+  padding: var(--size-0-5);
+}
+
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+button,
+.button {
+  display: inline-flex;
+  gap: var(--size-0-5);
+  padding-block: var(--size-0-5);
+  padding-inline: var(--size-1-5);
+  background-color: var(--accent);
+  color: black;
+  font: inherit;
+  font-size: var(--size-1-5);
+  line-height: inherit;
+  text-wrap: balance;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  transition: all 100ms ease;
+  cursor: pointer;
+}
+
+button:hover,
+.button:hover {
+  text-decoration: none;
+}
+
+.details summary::marker {
+  /* Plus */
+  content: "\002b";
+}
+
+.details[open] summary::marker {
+  /* Minus */
+  content: "\2212";
+}
+
+summary {
+  cursor: pointer;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td,
+math,
+time[datetime*=":"] {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Typography */
+body {
+  font-size: var(--size);
+  line-height: 1.6;
+}
+
+/* Utility Layouts */
+.wrapper {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
+}
+
+.flow > * + * {
+  --flow-margin-block-start: var(--size-1-5);
+
+  margin-block-start: var(--flow-margin-block-start);
+}
+
+.inner {
+  --inner-width: var(--size-3);
+  --inner-padding-block: var(--size-3);
+
+  width: min(100% - var(--inner-width), var(--lg));
+  margin-inline: auto;
+  padding-block: var(--inner-padding-block);
+}
+
+.auto-fit {
+  --auto-fit-min: var(--xs);
+  --auto-fit-gap: var(--size-3);
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(var(--auto-fit-min), 100%), 1fr)
+  );
+  align-items: start;
+  gap: var(--auto-fit-gap);
+}
+
+.auto-fill {
+  --auto-fill-min: var(--xs);
+  --auto-fill-gap: var(--size-3);
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(var(--auto-fill-min), 100%), 1fr)
+  );
+  align-items: start;
+  gap: var(--auto-fill-gap);
+}
+
+.auto-flow {
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+.spread-apart {
+  --spread-apart-gap: var(--size-1-5);
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spread-apart-gap);
+}
+
+.columns {
+  --columns-width: 20rem;
+  --columns-gap: var(--size-3);
+
+  column-width: var(--columns-width);
+  gap: var(--columns-gap);
+}
+
+.column-span-all {
+  column-span: all;
+}
+
+.float-left {
+  --float-left-margin-inline-end: var(--size-3);
+  --float-left-margin-block-end: var(--size-1-5);
+
+  width: auto;
+  float: inline-start;
+  margin-inline-end: var(--float-left-margin-inline-end);
+  margin-block-end: var(--float-left-margin-block-end);
+}
+
+.float-right {
+  --float-right-margin-inline-end: var(--size-3);
+  --float-right-margin-block-end: var(--size-1-5);
+
+  width: auto;
+  float: inline-end;
+  margin-inline-end: var(--float-right-margin-inline-end);
+  margin-block-end: var(--float-right-margin-block-end);
+}
+
+.image-shape-right {
+  float: right;
+  width: clamp(var(--xs), 40vw, var(--sm));
+  background-position: center;
+  background-size: cover;
+  shape-margin: var(--size-2);
+  /* shape-outside: url('/man.png'); */
+}
+
+/* Utility classes */
+.container {
+  container-type: inline-size;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.balance {
+  text-wrap: balance;
+}
+
+.pretty {
+  text-wrap: pretty;
+}
+
+.square {
+  aspect-ratio: 1;
+}
+
+.landscape {
+  aspect-ratio: 4/3;
+}
+
+.portrait {
+  aspect-ratio: 3/4;
+}
+
+.widescreen {
+  aspect-ratio: 16/9;
+}
+
+.ultrawide {
+  aspect-ratio: 18/5;
+}
+
+.golden {
+  aspect-ratio: 1.618/1;
+}
+
+.fit {
+  object-fit: cover;
+}
+
+.hanging {
+  hanging-punctuation: first last;
+}
+
+.hanging-punctuation-none {
+  hanging-punctuation: none;
+}
+
+.hanging-punctuation-first {
+  hanging-punctuation: first;
+}
+
+.hanging-punctuation-last {
+  hanging-punctuation: last;
+}
+
+.hanging-punctuation-allow-end,
+.hanging-punctuation-allow {
+  hanging-punctuation: allow-end;
+}
+
+.hanging-punctuation-unset {
+  hanging-punctuation: unset;
+}
