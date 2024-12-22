@@ -59,6 +59,7 @@
 }
 
 html {
+  color: #595959;
   font-family: system-ui, sans-serif;
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
@@ -126,6 +127,10 @@ select {
   font-size: inherit;
 }
 
+label {
+  font-weight: 600;
+}
+
 input,
 select,
 textarea {
@@ -149,12 +154,13 @@ button,
 .button {
   display: inline-flex;
   gap: var(--size-0-5);
+  justify-content: center;
   padding-block: var(--size-0-5);
   padding-inline: var(--size-1-5);
-  background-color: var(--accent);
-  color: black;
+  background-color: #4791ce;
+  color: white;
   font: inherit;
-  font-size: var(--size-1-5);
+  font-weight: bold;
   line-height: inherit;
   text-wrap: balance;
   text-align: center;
