@@ -77,6 +77,7 @@ h2,
 h3,
 .h3 {
   font-weight: bold;
+  color: #565555;
 }
 
 h1,
@@ -133,6 +134,15 @@ textarea {
 
 textarea:not([rows]) {
   min-height: 10em;
+}
+
+a {
+  color: #7f1e19;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 button,
@@ -231,7 +241,7 @@ body {
   --inner-width: var(--size-3);
   --inner-padding-block: var(--size-3);
 
-  width: min(100% - var(--inner-width), var(--lg));
+  width: min(100% - var(--inner-width) * 2, var(--lg));
   margin-inline: auto;
   padding-block: var(--inner-padding-block);
 }
