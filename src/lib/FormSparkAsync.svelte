@@ -12,8 +12,6 @@
 
 	const FORMSPARK_ACTION_URL = `https://submit-form.com/${id}`
 
-	let formElement = $state() as HTMLFormElement
-
 	let firstName = $state('')
 	let lastName = $state('')
 	let email = $state('')
@@ -22,6 +20,7 @@
 
 	let isSubmitting = $state(false)
 	let isSubmitted = $state(false)
+
 	let botpoison: Botpoison
 
 	$effect(() => {
@@ -61,8 +60,6 @@
 					},
 				}),
 			})
-
-			formElement.reset()
 		} catch (err) {
 			console.error(err)
 		} finally {
@@ -77,11 +74,7 @@
 		<p class="h2">Thank you for your message!</p>
 		<p>We have received your message and will contact you as soon as possible.</p>
 	{:else}
-		<form
-			bind:this={formElement}
-			class="flow"
-			onsubmit={event => handleSubmit(event, FORMSPARK_ACTION_URL)}
-		>
+		<form class="flow" onsubmit={event => handleSubmit(event, FORMSPARK_ACTION_URL)}>
 			<div class="columns">
 				<div>
 					<label for="first-name">First Name <span>*</span></label>
