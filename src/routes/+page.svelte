@@ -26,6 +26,8 @@
           <img
             class="logo"
             src="/logo-allstate.webp"
+            width="256"
+            height="86"
             alt="Allstate Backgrounds logo"
           />
           <a href="tel:9163419913">(916) 341-9913</a>
