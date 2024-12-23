@@ -6,12 +6,11 @@
 
 <svelte:head>
   <title
-    >Allstate Background Searches - Southern California | Allstate Background
-    Searches</title
+    >Allstate Background Searches - California | Allstate Background Searches</title
   >
   <meta
     name="description"
-    content="Allstate Background Searches specializes in pre-employment background screening and tenant background screening in Southern California. Get started today!"
+    content="Allstate Background Searches specializes in pre-employment background screening and tenant background screening in California. Get started today!"
   />
 </svelte:head>
 
