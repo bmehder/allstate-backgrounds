@@ -8,6 +8,8 @@
 		isPhoneRequired?: boolean
 	}
 
+	type Status = 'Unsubmitted' | 'Submitting' | 'Submitted'
+
 	let { id = '', botpoisonKey = '', isPhoneRequired = false }: Props = $props()
 
 	const FORMSPARK_ACTION_URL = `https://submit-form.com/${id}`
@@ -18,8 +20,7 @@
 	let phone = $state('')
 	let message = $state('')
 
-	let isSubmitting = $state(false)
-	let isSubmitted = $state(false)
+	let status: Status = $state('Unsubmitted')
 
 	let botpoison: Botpoison
 
@@ -33,7 +34,7 @@
 		event.preventDefault()
 
 		try {
-			isSubmitting = true
+			status = 'Submitting'
 
 			const { solution } = await botpoison.challenge()
 
@@ -63,14 +64,13 @@
 		} catch (err) {
 			console.error(err)
 		} finally {
-			isSubmitting = false
-			isSubmitted = true
+			status = 'Submitted'
 		}
 	}
 </script>
 
 <div class="flow">
-	{#if isSubmitted}
+	{#if status === 'Submitted'}
 		<p class="h2">Thank you for your message!</p>
 		<p>We have received your message and will contact you as soon as possible.</p>
 	{:else}
@@ -132,7 +132,7 @@
 			</div>
 			<div>
 				<button type="submit">
-					{#if isSubmitting}
+					{#if status === 'Submitting'}
 						<Spinner />
 					{:else}
 						Submit Message
