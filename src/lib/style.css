@@ -26,9 +26,9 @@
 
   --dark: black;
   --light: white;
-  --hue: 74;
-  --saturation: 64%;
-  --lightness: 59%;
+  --hue: 207;
+  --saturation: 58%;
+  --lightness: 54%;
   --accent: hsl(var(--hue), var(--saturation), var(--lightness));
   --accent-inverse: hsl(
     calc(var(--hue) + 180),
@@ -118,6 +118,10 @@ svg {
   display: block;
 }
 
+form .required {
+  color: red;
+}
+
 input,
 button,
 textarea,
@@ -128,6 +132,7 @@ select {
 }
 
 label {
+  margin-block-end: var(--size-0-2-5);
   font-weight: 600;
 }
 
@@ -135,10 +140,12 @@ input,
 select,
 textarea {
   padding: var(--size-0-5);
+  border: 1px solid #d9d9d9;
 }
 
 textarea:not([rows]) {
   min-height: 10em;
+  border: 1px solid #d9d9d9;
 }
 
 a {
@@ -155,9 +162,9 @@ button,
   display: inline-flex;
   gap: var(--size-0-5);
   justify-content: center;
-  padding-block: var(--size-0-5);
+  padding-block: var(--size);
   padding-inline: var(--size-1-5);
-  background-color: #4791ce;
+  background-color: var(--accent);
   color: white;
   font: inherit;
   font-weight: bold;
@@ -173,6 +180,8 @@ button,
 button:hover,
 .button:hover {
   text-decoration: none;
+  background-color: black;
+  color: white;
 }
 
 .details summary::marker {

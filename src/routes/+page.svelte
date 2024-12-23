@@ -87,7 +87,7 @@
   }
 
   summary {
-    color: #4791ce;
+    color: var(--accent);
     font-weight: bold;
   }
 </style>

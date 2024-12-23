@@ -4,18 +4,14 @@
   let { children } = $props();
 </script>
 
-<div id="wrapper">
+<div class="wrapper">
   <main>
     {@render children()}
   </main>
 </div>
 
 <style>
-  #wrapper {
+  .wrapper {
     background-image: url("/pattern.png");
-  }
-
-  main {
-    min-height: 100dvh;
   }
 </style>
